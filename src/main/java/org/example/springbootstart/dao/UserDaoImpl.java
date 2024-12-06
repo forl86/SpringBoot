@@ -25,25 +25,21 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    @Transactional
     public void add(User u) {
         entityManager.persist(u);
     }
 
     @Override
-    @Transactional
     public void delete(User u) {
         entityManager.remove(u);
     }
 
     @Override
-    @Transactional
     public void edit(User u) {
         entityManager.merge(u);
     }
 
     @Override
-    @Transactional
     public User getById(int id) {
         org.hibernate.query.Query<User> query = (org.hibernate.query.Query<User>) entityManager.createQuery("from User u where u.id=:id", User.class);
         query.setParameter("id", id);

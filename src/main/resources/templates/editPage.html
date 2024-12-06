@@ -4,6 +4,7 @@
 <!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Edit</title>
 </head>
 <body>
@@ -11,14 +12,18 @@
         <tr>
             <td><label th:text="#{user.id}" /></td>
             <td><input type="number" th:field="*{id}" /></td>
+            <div style="color:red" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id error</div>
         </tr>
         <tr>
             <td><label th:text="#{user.name}" /></td>
-            <td><input type="text" th:field="*{name}"/></td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
         </tr>
         <tr>
-            <td><input type="submit" value="Submit" /></td>
+            <td><input type="submit" value="Submit"></td>
         </tr>
+
+        <br/>
     </form>
 </body>
 </html>
